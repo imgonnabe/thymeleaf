@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<h1>인덱스</h1>
+	<span th:text="${txt}">출력</span>
+	<span th:utext="${html}"></span>
+	[[${html}]]
+	[(${html})]
+	
+	<script type="text/javascript">
+		let text = [[${txt}]];
+	</script>
+	<hr>
+	<a th:href="@{./main}">naver</a>
+	<a href="./detail?bno=10">title</a>
+	<a th:href="@{./detail(bno=${bno})}">title</a>
+	<a th:href="@{./detail(bno=10, user=150)}">title</a>
+	
+	
+	<span th:with="name=홍길동"></span>
+	<span th:text="${name}">이름</span>
+	
+	<span th:with="name=홍길동" th:text="${name}">이름</span>
+	<hr>
+	
+	[[${bno ne 20}]]
+	<hr>
+	
+	<span th:if="${bno == 20}" th:text="'bno는 20입니다.'"></span>
+	<span th:if="${bno != 20}" th:text="'bno는 20이 아닙니다.'"></span>
+	
+	[[${list}]]
+	<ul th:each="e : ${list}">
+		<li th:text=${e}></li>
+	</ul>
+</body>
+</html>
